@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+cat texts/*.txt                    | # grab all texts
+  perl -pe 's/\[id\d+\|[^\]]+\]//' | # remove user mentions like [id00000|@user]
+  sed '/^\s*$/d; s/^[ \t]*//;'     | # remove empty lines and leading whitespace
+  python3 mkchain.py                 # generate the model
