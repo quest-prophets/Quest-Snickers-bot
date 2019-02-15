@@ -15,7 +15,7 @@ def shitpost(model, update, context):
     text = None
     while text is None:
         text = model.make_short_sentence(140)
-    update.message.reply_text(text)
+    update.message.reply_text(text, quote=False)
 
 def error(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
